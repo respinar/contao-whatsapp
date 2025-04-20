@@ -1,5 +1,5 @@
 {
-    "name": "respinar/contao-whatsapp-bundle",
+    "name": "respinar/contao-whatsapp",
     "description": "A WhatsApp button bundle for Contao CMS",
     "keywords": ["contao", "whatsapp", "bundle"],
     "type": "contao-bundle",
@@ -13,8 +13,8 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/respinar/contao-whatsapp-bundle/issues",
-        "source": "https://github.com/respinar/contao-whatsapp-bundle"
+        "issues": "https://github.com/respinar/contao-whatsapp/issues",
+        "source": "https://github.com/respinar/contao-whatsapp"
     },
     "require": {
         "php": "^8.2",
