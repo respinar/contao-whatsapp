@@ -25,10 +25,10 @@
     },
     "autoload": {
         "psr-4": {
-            "Respinar\\ContaoWhatsappBundle\\": "src/"
+            "Respinar\\WhatsappBundle\\": "src/"
         }
     },    
     "extra": {
-        "contao-manager-plugin": "Respinar\\ContaoWhatsappBundle\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "Respinar\\WhatsappBundle\\ContaoManager\\Plugin"
     }
 }
