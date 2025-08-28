@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Respinar\ContaoWhatsappBundle\Controller\FrontendModule;
+namespace Respinar\WhatsappBundle\Controller\FrontendModule;
 
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsFrontendModule;
@@ -24,14 +24,14 @@ class WhatsappController extends AbstractFrontendModuleController
             return new Response();
         }
 
-        $whatsappData = [       
+        $whatsappData = [
             'title' => null,
             'number' => null,
             'message' => null,
         ];
 
         while ($page !== null) {
-    
+
             // Set only if not already set and the page value is non-empty
             if (empty($whatsappData['title']) && !empty(trim((string)$page->whatsappTitle))) {
                 $whatsappData['title'] = $page->whatsappTitle;
@@ -49,7 +49,7 @@ class WhatsappController extends AbstractFrontendModuleController
             if (!empty($whatsappData['title']) && !empty($whatsappData['number']) && !empty($whatsappData['message'])) {
                 break;
             }
-    
+
             // If all values are found, break
             if ($whatsappData['title'] && $whatsappData['number'] && $whatsappData['message']) {
                 break;
@@ -57,7 +57,7 @@ class WhatsappController extends AbstractFrontendModuleController
 
             // Move to parent
             $page = PageModel::findById($page->pid);
-        }     
+        }
 
         // Assign data to the template
         $template->set('whatsappTitle', $whatsappData['title'] ?? $model->whatsappTitle);
@@ -66,7 +66,7 @@ class WhatsappController extends AbstractFrontendModuleController
         $template->set('searchable', False);
 
         // Add JavaScript file to the page
-        $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/respinarcontaowhatsapp/js/whatsapp.js|static';
+        $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/respinarwhatsapp/js/whatsapp.js|static';
 
         return $template->getResponse();
     }
@@ -77,11 +77,11 @@ class WhatsappController extends AbstractFrontendModuleController
         while ($page !== null) {
             $visibility = $page->whatsappVisibility;
 
-            if ($visibility === 'show') {          
+            if ($visibility === 'show') {
                 return true;
             }
 
-            if ($visibility === 'hide') {          
+            if ($visibility === 'hide') {
                 return false;
             }
 
