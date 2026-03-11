@@ -12,7 +12,7 @@ use Contao\PageModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-#[AsFrontendModule(category: "miscellaneous")]
+#[AsFrontendModule(category: 'miscellaneous')]
 class WhatsappController extends AbstractFrontendModuleController
 {
     protected function getResponse(FragmentTemplate $template, ModuleModel $model, Request $request): Response
@@ -30,18 +30,17 @@ class WhatsappController extends AbstractFrontendModuleController
             'message' => null,
         ];
 
-        while ($page !== null) {
-
+        while (null !== $page) {
             // Set only if not already set and the page value is non-empty
-            if (empty($whatsappData['title']) && !empty(trim((string)$page->whatsappTitle))) {
+            if (empty($whatsappData['title']) && !\in_array(trim((string) $page->whatsappTitle), ['', '0'], true)) {
                 $whatsappData['title'] = $page->whatsappTitle;
             }
 
-            if (empty($whatsappData['number']) && !empty(trim((string)$page->whatsappNumber))) {
+            if (empty($whatsappData['number']) && !\in_array(trim((string) $page->whatsappNumber), ['', '0'], true)) {
                 $whatsappData['number'] = $page->whatsappNumber;
             }
 
-            if (empty($whatsappData['message']) && !empty(trim((string)$page->whatsappMessage))) {
+            if (empty($whatsappData['message']) && !\in_array(trim((string) $page->whatsappMessage), ['', '0'], true)) {
                 $whatsappData['message'] = $page->whatsappMessage;
             }
 
@@ -63,7 +62,7 @@ class WhatsappController extends AbstractFrontendModuleController
         $template->set('whatsappTitle', $whatsappData['title'] ?? $model->whatsappTitle);
         $template->set('whatsappNumber', $whatsappData['number'] ?? $model->whatsappNumber);
         $template->set('whatsappMessage', $whatsappData['message'] ?? $model->whatsappMessage);
-        $template->set('searchable', False);
+        $template->set('searchable', false);
 
         // Add JavaScript file to the page
         $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/respinarwhatsapp/js/whatsapp.js|static';
@@ -73,15 +72,14 @@ class WhatsappController extends AbstractFrontendModuleController
 
     private function isWhatsappVisible(PageModel $page, ModuleModel $model): bool
     {
-
-        while ($page !== null) {
+        while (null !== $page) {
             $visibility = $page->whatsappVisibility;
 
-            if ($visibility === 'show') {
+            if ('show' === $visibility) {
                 return true;
             }
 
-            if ($visibility === 'hide') {
+            if ('hide' === $visibility) {
                 return false;
             }
 
