@@ -17,7 +17,7 @@
         "source": "https://github.com/respinar/contao-whatsapp"
     },
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "contao/core-bundle":"^5.3"
     },
     "require-dev": {
@@ -27,7 +27,7 @@
         "psr-4": {
             "Respinar\\WhatsappBundle\\": "src/"
         }
-    },    
+    },
     "extra": {
         "contao-manager-plugin": "Respinar\\WhatsappBundle\\ContaoManager\\Plugin"
     }
