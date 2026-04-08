@@ -65,7 +65,7 @@ class WhatsappController extends AbstractFrontendModuleController
         $template->set('searchable', false);
 
         // Add JavaScript file to the page
-        $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/respinarwhatsapp/js/whatsapp.js|static';
+        $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/respinarwhatsapp/js/whatsapp.js|static|defer';
 
         return $template->getResponse();
     }
