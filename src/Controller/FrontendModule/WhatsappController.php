@@ -44,13 +44,8 @@ class WhatsappController extends AbstractFrontendModuleController
                 $whatsappData['message'] = $page->whatsappMessage;
             }
 
-            // If all are filled, break
-            if (!empty($whatsappData['title']) && !empty($whatsappData['number']) && !empty($whatsappData['message'])) {
-                break;
-            }
-
             // If all values are found, break
-            if ($whatsappData['title'] && $whatsappData['number'] && $whatsappData['message']) {
+            if (!empty($whatsappData['title']) && !empty($whatsappData['number']) && !empty($whatsappData['message'])) {
                 break;
             }
 
