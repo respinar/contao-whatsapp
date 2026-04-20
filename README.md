@@ -12,7 +12,7 @@ A lightweight and versatile Contao bundle that adds a customizable WhatsApp butt
 
 
 ## Installation
-- Install via Composer: `composer require respinar/contao-whatsapp`
+- Install via Composer: `composer require respinar/contao-whatsapp-button`
 - Configure in the Contao backend under module and page settings.
 
 ## Configuration
