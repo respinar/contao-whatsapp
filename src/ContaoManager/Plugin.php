@@ -10,20 +10,20 @@ declare(strict_types=1);
  * @license MIT
  */
 
-namespace Respinar\WhatsappBundle\ContaoManager;
+namespace Respinar\WhatsappButtonBundle\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use Respinar\WhatsappBundle\RespinarWhatsappBundle;
+use Respinar\WhatsappButtonBundle\WhatsappButtonBundle;
 
 class Plugin implements BundlePluginInterface
 {
     public function getBundles(ParserInterface $parser): array
     {
         return [
-            BundleConfig::create(RespinarWhatsappBundle::class)
+            BundleConfig::create(WhatsappButtonBundle::class)
                 ->setLoadAfter([ContaoCoreBundle::class]),
         ];
     }
