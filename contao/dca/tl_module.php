@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @license MIT
  */
 
-$GLOBALS['TL_DCA']['tl_module']['palettes']['whatsapp'] = '
+$GLOBALS['TL_DCA']['tl_module']['palettes']['whatsapp_button'] = '
     {title_legend},name,type;
     {whatsapp_legend},whatsappTitle,whatsappIsVisible,whatsappNumber,whatsappMessage;
     {template_legend:hide},cssID,customTpl;
