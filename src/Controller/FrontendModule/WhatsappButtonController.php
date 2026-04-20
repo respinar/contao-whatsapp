@@ -10,7 +10,7 @@ declare(strict_types=1);
  * @license MIT
  */
 
-namespace Respinar\WhatsappBundle\Controller\FrontendModule;
+namespace Respinar\WhatsappButtonBundle\Controller\FrontendModule;
 
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsFrontendModule;
@@ -20,8 +20,8 @@ use Contao\PageModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-#[AsFrontendModule(category: 'miscellaneous')]
-class WhatsappController extends AbstractFrontendModuleController
+#[AsFrontendModule(type: 'whatsapp_button', category: 'miscellaneous')]
+class WhatsappButtonController extends AbstractFrontendModuleController
 {
     protected function getResponse(FragmentTemplate $template, ModuleModel $model, Request $request): Response
     {
@@ -68,7 +68,7 @@ class WhatsappController extends AbstractFrontendModuleController
         $template->set('searchable', false);
 
         // Add JavaScript file to the page
-        $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/respinarwhatsapp/js/whatsapp.js|static|defer';
+        $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/whatsappbutton/js/whatsapp.js|static|defer';
 
         return $template->getResponse();
     }
