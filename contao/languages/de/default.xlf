@@ -2,12 +2,12 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" target-language="de" datatype="plaintext" original="default">
     <body>
-      <trans-unit id="FMD.whatsapp.0">
-        <source>Whatsapp</source>
-        <target>WhatsApp</target>
+      <trans-unit id="FMD.whatsapp_button.0">
+        <source>WhatsApp button</source>
+        <target>WhatsApp-Button</target>
       </trans-unit>
-      <trans-unit id="FMD.whatsapp.1">
-        <source>Whatsapp Button</source>
+      <trans-unit id="FMD.whatsapp_button.1">
+        <source>WhatsApp Button</source>
         <target>WhatsApp-Button</target>
       </trans-unit>
       <trans-unit id="whatsappVisibilityOptions.show">
