@@ -61,16 +61,28 @@ class WhatsappButtonController extends AbstractFrontendModuleController
             $page = PageModel::findById($page->pid);
         }
 
+        $whatsappNumber = $whatsappData['number'] ?? $model->whatsappNumber;
+        $whatsappMessage = $whatsappData['message'] ?? $model->whatsappMessage;
+
+        $baseUrl = $this->isMobile($request)
+            ? 'whatsapp://send'
+            : 'https://web.whatsapp.com/send';
+
+        $whatsappUrl = $baseUrl.'?phone='.rawurlencode((string) $whatsappNumber).'&text='.rawurlencode((string) $whatsappMessage);
+
         // Assign data to the template
         $template->set('whatsappTitle', $whatsappData['title'] ?? $model->whatsappTitle);
-        $template->set('whatsappNumber', $whatsappData['number'] ?? $model->whatsappNumber);
-        $template->set('whatsappMessage', $whatsappData['message'] ?? $model->whatsappMessage);
+        $template->set('whatsappUrl', $whatsappUrl);
         $template->set('searchable', false);
 
-        // Add JavaScript file to the page
-        $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/whatsappbutton/js/whatsapp.js|static|defer';
-
         return $template->getResponse();
+    }
+
+    private function isMobile(Request $request): bool
+    {
+        $userAgent = $request->headers->get('User-Agent', '');
+
+        return (bool) preg_match('/Mobi|Android|iPhone/i', $userAgent);
     }
 
     private function isWhatsappVisible(PageModel $page, ModuleModel $model): bool
