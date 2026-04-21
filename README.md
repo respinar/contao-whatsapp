@@ -1,12 +1,14 @@
 # Contao WhatsApp Button Bundle
 
+> **Note:** This package was renamed from `respinar/contao-whatsapp` to `respinar/contao-whatsapp-button`. If you previously used the old package name, update your `composer.json` accordingly.
+
 A lightweight and versatile Contao bundle that adds a customizable WhatsApp button to your pages. Ideal for businesses, bloggers, or anyone looking to enable fast, direct communication with visitors via WhatsApp. Configure the button effortlessly through Contao’s backend with your phone number, default message, and styling—no coding skills needed!
 
 ## Features
 - Seamless Integration: Easily add the WhatsApp button to any Contao page or module.
 - Customizable: Set button text, phone number, and default message via page or module settings.
 - Multi-Language Support: Fully translated into English, Persian (Farsi), and German for backend labels and descriptions.
-- Device-Aware Links: Automatically adapts WhatsApp links for mobile (whatsapp://) and desktop (web.whatsapp.com) using JavaScript.
+- Device-Aware Links: Automatically adapts WhatsApp links for mobile (`whatsapp://`) and desktop (`web.whatsapp.com`) using PHP-based user-agent detection.
 - Twig-Powered: Modern, secure templating with Contao 5.3’s Twig engine.
 - Flexible Styling: Apply custom CSS classes through Contao’s backend for tailored designs.
 
@@ -25,12 +27,12 @@ A lightweight and versatile Contao bundle that adds a customizable WhatsApp butt
 
 ## Usage
 - The button appears wherever you include the module in your layout or content.
-- Clicking it opens WhatsApp with the configured phone number and message, optimized for the user’s device (mobile app or web interface).
+- Clicking it opens WhatsApp with the configured phone number and message, optimized for the user’s device (mobile app or web interface) via server-side detection.
 - Customize the appearance using CSS classes in the module settings.
 
 ## Requirements
 - Contao 5.3 or higher
-- PHP 8.2+
+- PHP 8.3+
 
 ## License
 MIT
